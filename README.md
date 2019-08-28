@@ -138,6 +138,10 @@ I wont include adb shell in any of my commands since I working on the device and
         adb shell pm uninstall --user 0 "${packages}"
     done 
 
+### Clear application data:
+
+    pm clear PACKAGE_NAME
+
 ### List permission groups: 
 
     pm list permission-groups 
@@ -225,5 +229,30 @@ I wont include adb shell in any of my commands since I working on the device and
     adb logcat -b main -b radio -b events
 
 # DUMPSYS
+
+### Dump all data for battery: 
+
+    adb shell dumpsys battery
+
+### Dump stats for your battery:
+
+    adb shell dumpsys batterystats 
+
+### Erase old stats for battery:
+ 
+    dumpsys batterystats --reset 
+
+# Tips And Tricks
+
+# Add a contact
+
+## Example 1:
+
+    am start -a android.intent.action.INSERT -t vnd.android.cursor.dir/contact -e name "$(dialog --stdout --inputbox 'wuseman' 0 0)" -e postal "$(dialog --stdout --inputbox 'Postal Address' 0 0)" -e phone "$(dialog --stdout --inputbox 'Phone Number' 0 0)" -e email "$(dialog --stdout --inputbox 'Email' 0 0)"
+    
+## Example 2: 
+
+    am start -a android.intent.action.INSERT -t vnd.android.cursor.dir/contact -e name 'wuseman' -e phone <phone_number>
+
 
 
