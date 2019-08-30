@@ -230,6 +230,317 @@ I wont include adb shell in any of my commands since I working on the device and
 
 # DUMPSYS
 
+### List all active services:
+
+    dumpsys -l |sed 's/^  /      /g'
+    Currently running services:
+      AAS
+      AODManagerService
+      CCM
+      CocktailBarService
+      CodecSolution
+      CustomFrequencyManagerService
+      DeviceRootKeyService
+      DirEncryptService
+      DisplaySolution
+      DockObserver
+      EngineeringModeService
+      HqmManagerService
+      ImsBase
+      OcfKeyService
+      ReactiveService
+      SEAMService
+      SamsungKeyProvisioningManagerService
+      SatsService
+      SecExternalDisplayService
+      SemAuthnrService
+      SemMLDAPService
+      SemService
+      SurfaceFlinger
+      SveService
+      VaultKeeperService
+      accessibility
+      account
+      activity
+      alarm
+      android.security.keystore
+      application_policy
+      appops
+      appwidget
+      audio
+      autofill
+      backup
+      barbeam
+      battery
+      batteryproperties
+      batterystats
+      binder_calls_stats
+      bluetooth_manager
+      bluetooth_secure_mode_manager
+      carrier_config
+      cepproxyks
+      clipboard
+      com.samsung.android.bio.face.IFaceDaemon
+      com.samsung.android.camera.iris.IIrisDaemon
+      com.samsung.ucs.ucsservice
+      commontime_management
+      companiondevice
+      connectivity
+      connmetrics
+      consumer_ir
+      content
+      context_aware
+      contexthub
+      country_detector
+      cover
+      cpuinfo
+      crossprofileapps
+      dbinfo
+      desktopmode
+      device_identifiers
+      device_policy
+      deviceidle
+      devicestoragemonitor
+      diskstats
+      display
+      dreams
+      drm.drmManager
+      dropbox
+      dsms
+      dual_app
+      edge
+      edm_proxy
+      edmnativehelper
+      emailksproxy
+      enterprise_license_policy
+      enterprise_policy
+      epdgService
+      ethernet
+      fingerprint
+      freecess.binder.IFrozenBinder
+      freecess.packet.IFreecessPacket
+      gamemanager
+      gamesdk
+      gfxinfo
+      gpu
+      graphicsstats
+      gsmaapi
+      hardware_properties
+      harmony_eas_service
+      iccc
+      imms
+      ims6
+      input
+      input_method
+      iphonesubinfo
+      ipsec
+      isms
+      isub
+      jobscheduler
+      knox_ccm_policy
+      knox_securetimer
+      knox_timakeystore_policy
+      knox_ucsm_policy
+      knox_vpn_policy
+      knoxcustom
+      knoxguard_service
+      launcherapps
+      location
+      lock_settings
+      log_manager_service
+      mDNIe
+      mate_service
+      mdc_service
+      mdm.remotedesktop
+      media.audio_flinger
+      media.audio_policy
+      media.camera
+      media.camera.proxy
+      media.drm
+      media.extractor
+      media.mediacapture
+      media.metrics
+      media.player
+      media.remotedisplay
+      media.resource_manager
+      media.smartfitting_manager
+      media.sound_trigger_hw
+      media_projection
+      media_resource_monitor
+      media_router
+      media_session
+      meminfo
+      midi
+      mobile_payment
+      motion_recognition
+      mount
+      mpos
+      multidisplay
+      multiwindow
+      mum_container_policy
+      mum_container_rcp_policy
+      netd_listener
+      netpolicy
+      netstats
+      network_management
+      network_score
+      network_time_update_service
+      network_watchlist
+      nfc
+      notification
+      oem_lock
+      otadexopt
+      overlay
+      package
+      package_native
+      permission
+      permission.monitor
+      persistent_data_block
+      persona
+      persona_policy
+      phone
+      phone_restriction_policy
+      pinner
+      power
+      print
+      processinfo
+      procstats
+      rcp
+      recovery
+      remoteinjection
+      restriction_policy
+      restrictions
+      saccessory_manager
+      samsung.smartfaceservice
+      sb_service
+      scheduling_policy
+      scontext
+      sdhms
+      sdp
+      sdp_log
+      search
+      sec_key_att_app_id_provider
+      sec_location
+      secims
+      secure_element
+      sedenial
+      semclipboard
+      sensorservice
+      sepunion
+      serial
+      servicediscovery
+      settings
+      shortcut
+      simphonebook
+      sip
+      slice
+      soundtrigger
+      spengestureservice
+      stats
+      statscompanion
+      statusbar
+      storaged
+      storaged_pri
+      storagestats
+      system_update
+      telecom
+      telephony.registry
+      textclassification
+      textservices
+      thermalservice
+      tima
+      timezone
+      trust
+      uimode
+      updatelock
+      urspservice
+      usagestats
+      usb
+      user
+      vibrator
+      virtualspace
+      voiceinteraction
+      voip
+      vr
+      vrmanager
+      wallpaper
+      webviewupdate
+      wifi
+      wifi_policy
+      wificond
+      wifip2p
+      wifiscanner
+      window
+
+## Examples:
+
+### Show bluetooth macaddr, bluetooth name and such things:
+
+    dumpsys bluetooth_manager
+
+### List all settngs and if they are true or false:
+
+Settings are sorted for root and user:
+
+     GLOBAL SETTINGS (user 0)
+     SECURE SETTINGS (user 0)
+     SYSTEM SETTINGS (user 0)
+     SECURE SETTINGS (user 95)
+     SYSTEM SETTINGS (user 95)
+
+
+    dumpsys settings
+    _id:225 name:lock_screen_show_notifications pkg:com.android.settings value:1 default:1 defaultSystemSet:true
+    _id:6 name:volume_bluetooth_sco pkg:android value:7 default:7 defaultSystemSet:true
+    _id:192 name:ringtone_set pkg:com.google.android.gsf value:1
+    _id:159 name:lock_screen_allow_rotation pkg:android value:0 default:0 defaultSystemSet:true
+    _id:2997 name:Flashlight_brightness_level pkg:com.android.systemui value:1001 default:1001 defaultSystemSet:true
+    _id:67 name:SEM_VIBRATION_NOTIFICATION_INTENSITY pkg:android value:5 default:5 defaultSystemSet:true
+    _id:175 name:call_popup pkg:android value:0 default:0 defaultSystemSet:true
+    _id:59 name:install_non_market_apps pkg:android value:1 default:1 defaultSystemSet:true
+    .....
+
+### Display Contacts On Sim Card:
+
+    dumpsys simphonebook
+
+### Show hardware info as thermal stuff for cpu, gpu and battery
+
+     dumpsys hardware_properties
+    ****** Dump of HardwarePropertiesManagerService ******
+    CPU temperatures: [38.0, 38.0]
+    CPU throttling temperatures: [55.0, 76.0]
+    CPU shutdown temperatures: [115.0, 115.0]
+   
+### Show all application you have an account on: 
+
+    dumpsys account|grep -i com.*$ -o|cut -d' ' -f1|cut -d} -f1|grep -v com$
+    com.microsoft.workaccount
+    com.skype.raider
+    com.samsung.android.mobileservice
+    com.facebook.messenger
+    com.google.android.gm.exchange
+    .......
+    
+### Show all notifications listener and so on:
+
+    dumpsys notification
+    
+### List email addresses registerd on different stuff on device:
+
+    dumpsys | grep -E -o "\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}\b"
+    
+### Check state for screen and figoure how device was unlcked last time:
+
+    dumpsys  user
+    ...
+    State: RUNNING_UNLOCKED
+    ...
+    Last logged in fingerprint
+    .....
+    agree Knox Privacy Policy: false
+    
+### And for example, you can dump data for all of the running services: 
 ### Dump all data for battery: 
 
     adb shell dumpsys battery
@@ -242,9 +553,34 @@ I wont include adb shell in any of my commands since I working on the device and
  
     dumpsys batterystats --reset 
 
-# Tips And Tricks
+### Sort Applications By Ram Usage:
 
-# Add a contact
+     dumpsys meminfo
+
+    Applications Memory Usage (in Kilobytes):
+    Uptime: 29602806 Realtime: 57806941
+
+    Total PSS by process:
+    265,435K: com.android.systemui (pid 4190)
+    264,671K: system (pid 3838)
+    171,192K: surfaceflinger (pid 3360)
+    152,523K: android.hardware.graphics.composer@2.1-service (pid 3338)
+    128,781K: com.sec.android.app.launcher (pid 5597 / activities)
+     92,656K: se.kronansapotek.kronan (pid 26729 / activities)
+     84,563K: logd (pid 3203)
+     80,944K: com.google.android.talk (pid 32314 / activities)
+     79,754K: com.google.android.googlequicksearchbox:search 
+     
+     
+     
+     
+# Tips & Tricks
+
+### Print uptime for your device by days + time
+
+    TZ=UTC date -d@$(cut -d\  -f1 /proc/uptime) +'%j %T' | awk '{print $1-1"d",$2}'
+
+### Add a contact
 
 ## Example 1:
 
