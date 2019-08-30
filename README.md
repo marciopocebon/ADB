@@ -571,7 +571,27 @@ Settings are sorted for root and user:
      80,944K: com.google.android.talk (pid 32314 / activities)
      79,754K: com.google.android.googlequicksearchbox:search 
      
-     
+# DUMPSTATE
+
+### Dump info about your sim provider and kernel bootloader ID etc.
+
+    dumpstate -v
+
+    ========================================================
+    == dumpstate: 2019-08-30 19:31:05
+    ========================================================
+
+    Build: PPR1.180610.011.G950FXXS5DSF1
+    Build fingerprint: 'samsung/dreamltexx/dreamlte:9/PPR1.180610.011/G950FXXS5DSF1:user/release-keys'
+    Bootloader: G950FXXS5DSF1
+    Radio: G950FXXS5DSF1
+    Network: Comviq
+    Linux version 4.4.111-16019454 (dpi@21DHA724) (gcc version 4.9.x 20150123 (prerelease) (GCC) ) #1 SMP PREEMPT Mon Jun 3     20:16:50 KST 2019
+    Kernel: Command line: (unknown)
+    up 0 weeks, 0 days, 16 hours, 21 minutes
+    Uptime: Bugreport format version: 2.0
+    Dumpstate info: id=0 pid=26940 dry_run=0 args=dumpstate -v extra_options=
+
      
      
 # Tips & Tricks
