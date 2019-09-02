@@ -46,6 +46,22 @@ I wont include adb shell in any of my commands since I working on the device and
 
     adb devices
 
+### Get Status:
+
+    adb get-state  
+  
+### Print Serial Number:
+
+    adb get-serialno 
+    
+### Backup Device:
+
+    adb backup -all
+    
+### Restore Device:
+
+    adb restore /path/to/backupflile.adb
+
 ### Enter ADB shell:
 
     adb shell
@@ -146,7 +162,6 @@ I wont include adb shell in any of my commands since I working on the device and
 
     pm list permission-groups 
 
-
 ### List instrumentation:
 
     pm list instrumentation
@@ -175,6 +190,11 @@ I wont include adb shell in any of my commands since I working on the device and
 * E — Error
 * F — Fatal
 * S — Silent (highest priority, on which nothing is ever printed)
+
+### Use -v time for print timestamps, and threadtime for dates:
+
+    adb logcat -v time ...
+    adb logcat -v threadtime ....
 
 ### For get output colorized with logcat:
 
@@ -595,19 +615,142 @@ Settings are sorted for root and user:
      
 # AM
 
+### Factory Reset:
+
+    am broadcast -a android.intent.action.MASTER_CLEAR
+
 ### Open settings:
 
      am start -n com.android.settings/com.android.settings.Settings
 
 ### Open activity to new APN
 
-      am start -a android.intent.action.INSERT  content://telephony/carriers  --ei simId 
+     am start -a android.intent.action.INSERT  content://telephony/carriers  --ei simId 
 
 ### Open hiden menu (require root)
 
-    adb shell su -c "am broadcast -a android.provider.Telephony.SECRET_CODE -d android_secret_code://IOTHIDDENMENU"
+    su -c "am broadcast -a android.provider.Telephony.SECRET_CODE -d android_secret_code://IOTHIDDENMENU"
 
-# Tips & Tricks
+### Start prefered webbrowser:
+
+    am start -a android.intent.action.VIEW -d <url> (com.android.browser | com.android.chrome | com.sec.android.sbrowser) 
+
+### Print Activities:
+    
+    am start -a com.android.settings/.wifi.CaptivePortalWebViewActivity
+
+### Open Camera ( take photo with key event 66)
+
+    am start -a android.media.action.IMAGE_CAPTURE
+
+## Open Video Camera
+
+    am start -a android.media.action.VIDEO_CAMERA
+
+#### Open a picture and then set wallpaper by:
+
+    am start -a android.intent.action.SET_WALLPAPER
+
+### Open a url with your default browser
+
+    am start -a android.intent.action.VIEW -d https://github.com/wuseman
+
+# Open google maps with coordinates
+
+    am start -a android.intent.action.VIEW -d "geo:46.457398,-119.407305"
+
+# Enabling Night Mode (If Supported)
+    
+    am start --ez show_night_mode true com.android.systemui/.tuner.TunerActivity
+
+### Send SMS:
+
+    am broadcast -a com.whereismywifeserver.intent.TEST --es sms_body "test from adb"
+
+### Simulate waking your app using the following commands:
+
+    am set-inactive <packageName> 
+    am set-inactive <packageName> false
+    
+### Start facebook application inbox by using URI
+
+    am start -a android.intent.action.VIEW -d facebook://facebook.com/inbox
+  
+### Open a vcard file from sdcard (will open contacts app :) )
+
+    am start -a android.intent.action.VIEW -d file:///sdcard/me.vcard -t text/x-vcard  
+
+### Open an application to get content (in this case to get a jpeg picture)
+
+    am start -a android.intent.action.GET_CONTENT -t image/jpeg
+
+# GETPROP
+
+There is to much to describe here, get info by type getprop, but you can for example grep various stuff by:
+
+    getprop | grep "model\|version.sdk\|manufacturer\|hardware\|platform\|revision\|serialno\|product.name\|brand"
+
+# MiSC
+
+### Genereate hash from keystore  -Typically used in Facebook
+
+    keytool -exportcert -alias your_alias -keystore debug.keystore | openssl sha1 -binary | openssl base64 
+
+# Typically used in Google Maps
+
+    keytool -list -v -keystore ~/.android/debug.keystore -alias your_alia           
+
+### Print Screen Size
+
+    wm size
+
+### Set Screen Size
+
+    wm size WxH 
+    
+### Set Overscan:
+
+    wm overscan 0,0,0,200
+
+### Tips & Tricks
+
+
+
+### See current used app:
+
+    dumpsys window windows | grep -E 'mCurrentFocus|mFocusedApp'|grep '/'|awk -F'u0' '{print $2}'|awk '{print $1}'
+
+### Print how many notifications you have: 
+
+    dumpsys notification | grep NotificationRecord | wc -l 
+
+### Simulate a swipe down for notifications:
+
+    input swipe 0 0 0 300 
+    
+### Test any app by pressing 10000 times at once, this will start your application and perform 10000 random events.# 
+
+    monkey -p com.example.myapp -v 10000 
+
+### Print all application in use in a for loop 
+
+    pm list packages | sed -e "s/package://" | while read x; do cmd package resolve-activity --brief $x | tail -n 1 | grep -v "No activity found";done 
+    com.google.android.youtube/.app.honeycomb.Shell$HomeActivity
+    com.google.android.googlequicksearchbox/.SearchActivity
+    com.google.android.apps.docs.editors.docs/com.google.android.apps.docs.app.NewMainProxyActivity
+    com.android.documentsui/.LauncherActivity
+    com.google.android.apps.docs.editors.sheets/com.google.android.apps.docs.app.NewMainProxyActivity
+    com.google.android.apps.docs.editors.slides/com.google.android.apps.docs.app.NewMainProxyActivity
+    com.android.vending/.AssetBrowserActivity
+    .....
+    
+### Open Projectmenu (Huawei only)
+
+    am start com.huawei.android.projectmenu/com.huawei.android.projectmenu.ProjectMenuActivity
+
+### Unplug AC:
+
+    dumpsys battery unplug
 
 ### Print uptime for your device by days + time
 
