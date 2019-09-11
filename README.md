@@ -4,6 +4,13 @@ This is my private cheatsheet for ADB that I have decided to share since there i
 
 I wont include adb shell in any of my commands since I working on the device and not via shell I dont want to include adb shell. For all who prefering to work via a terminal like powershell or terminal just add "adb shell" infront of the commands. 
 
+First thing I want to mention since it seems very few people know that you can use below variables, so from now you you don t need to figoure out where your storage is: 
+
+         ls \$EXTERNAL_STORAGE                # View content
+         ls \$SECONDARY_STORAGE               # View content
+         echo \$EXTERNAL_STORAGE              # View path
+         echo \$SECONDARY_STORAGE             # View path
+
 # Basic
 
 ### Start ADB server:
@@ -467,6 +474,10 @@ Settings are sorted for root and user:
 
     am start -a android.intent.action.GET_CONTENT -t image/jpeg
 
+### There is several ways to send a SMS via AM, here is one example:
+
+    aam broadcast -a com.whereismywifeserver.intent.TEST --es sms_body "test from adb"
+
 # GETPROP
 
 There is to much to describe here, get info by type getprop, but you can for example grep various stuff by:
@@ -508,6 +519,10 @@ There is to much to describe here, get info by type getprop, but you can for exa
 ### Simulate a swipe down for notifications:
 
     input swipe 0 0 0 300 
+    
+### Swipe and unlock screen:
+
+    input swipe 300 1000 300 500 
     
 ### Test any app by pressing 10000 times at once, this will start your application and perform 10000 random events.# 
 
