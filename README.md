@@ -26,7 +26,7 @@ I wont include adb shell in any of my commands since I working on the device and
 
     adb connect <device_ip>
 
-# Restarts the adbd daemon listening on USB
+### Restarts the adbd daemon listening on USB
 
     adb usb
     
