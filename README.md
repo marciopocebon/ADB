@@ -608,6 +608,32 @@ There is to much to describe here, get info by type getprop, but you can for exa
 
 # Fastboot
 
+### Print device info
+
+    thinkpad /home/wuseman # fastboot getvar all
+    (bootloader) version:0.5
+    (bootloader) variant:MTP eMMC
+    (bootloader) secure:yes
+    (bootloader) version-baseband:
+    (bootloader) version-bootloader:
+    (bootloader) display-panel:
+    (bootloader) off-mode-charge:0
+    (bootloader) charger-screen-enabled:0
+    (bootloader) max-download-size: 0x20000000
+    (bootloader) partition-type:cache:ext4
+    (bootloader) partition-size:cache:       0x20000000
+    (bootloader) partition-type:userdata:ext4
+    (bootloader) partition-size:userdata:    0x5ba000000
+    (bootloader) partition-type:system:ext4
+    (bootloader) partition-size:system:      0x15d800000
+    (bootloader) dm_count:0
+    (bootloader) lock_count:1
+    (bootloader) unlock_count:2
+    (bootloader) serialno:LGH87011067135
+    (bootloader) kernel:lk
+    (bootloader) product:MSM8996
+    (bootloader) unlocked:yes
+
 ### Specifik for LG
     
     fastboot erase config
