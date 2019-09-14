@@ -281,6 +281,20 @@ First thing I want to mention since it seems very few people know that you can u
       SatsService
       SecExternalDisplayService
       ...................
+      
+### You can get help for all commands, example:
+
+    dumpsys battery -h 
+    Battery service (battery) commands:
+    help
+    Print this help text.
+    set [ac|usb|wireless|status|level|invalid] <value>
+    Force a battery property value, freezing battery state.
+    unplug
+    Force battery unplugged, freezing battery state.
+    reset
+    Unfreeze battery state, returning to current hardware values.
+
 
 ### Examples:
 
