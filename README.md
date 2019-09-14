@@ -613,3 +613,6 @@ fastboot oem get-build-number
 fastboot oem get_hwnff_ver_func
 fastboot flashing unlock
 
+### Print USB Mode (Charging only, MTP ... )
+
+    cat /sys/devices/soc0/hw_platform
