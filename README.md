@@ -340,6 +340,11 @@ Settings are sorted for root and user:
 
     dumpsys | grep -E -o "\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}\b"
     
+### Print version of a specifik package
+
+    dumpsys package com.lge.signboard | grep versionName
+    versionName=6.00.170603-0
+    
 ### Check state for screen and figoure how device was unlcked last time:
 
     dumpsys  user
@@ -478,6 +483,10 @@ Settings are sorted for root and user:
 
     aam broadcast -a com.whereismywifeserver.intent.TEST --es sms_body "test from adb"
 
+### Trick device that setup already has been done:
+
+     content insert --uri content://settings/secure --bind name:s:user_setup_complete --bind value:s:1
+
 # GETPROP
 
 There is to much to describe here, get info by type getprop, but you can for example grep various stuff by:
@@ -485,6 +494,27 @@ There is to much to describe here, get info by type getprop, but you can for exa
     getprop | grep "model\|version.sdk\|manufacturer\|hardware\|platform\|revision\|serialno\|product.name\|brand"
 
 # MiSC
+
+
+### Open settings for a specifik app
+ am start -a android.settings.APPLICATION_DETAILS_SETTINGS package:<com.package.example>
+
+### Auto rotation on
+
+    content insert –uri content://settings/system –bind name:s:accelerometer_rotation –bind value:i:1
+
+### Auto rotation off:
+    
+    content insert –uri content://settings/system –bind name:s:accelerometer_rotation –bind value:i:0
+
+
+### Rotate to landscape
+
+     content insert —uri content://settings/system –bind name:s:user_rotation –bind value:i:1
+
+### Rotate portrait
+
+     content insert –uri content://settings/system –bind name:s:user_rotation –bind value:i:0
 
 ### Genereate hash from keystore  -Typically used in Facebook
 
@@ -562,8 +592,24 @@ There is to much to describe here, get info by type getprop, but you can for exa
 
     am start -a android.intent.action.INSERT -t vnd.android.cursor.dir/contact -e name 'wuseman' -e phone <phone_number>
 
+# GETPROP
+
+### Is OEM unlocking enable or not
+
+      getprop sys.oem_unlock_allowed 
+      
+ ### Is sys boot completed:
+ 
+      getprop sys.boot_completed
 
 # Fastboot
+
+### Specifik for LG
+    
+    fastboot erase config
+    fastboot reboot
+
+
 fastboot oem get-psid                               #_Print_Serial_and_IMEI
 fastboot getvar rescue_version                      #_Print_rescue_mode
 fastboot getvar rescue_phoneinfo                    #_Print_phone_model
@@ -616,3 +662,7 @@ fastboot flashing unlock
 ### Print USB Mode (Charging only, MTP ... )
 
     cat /sys/devices/soc0/hw_platform
+    
+# Good Pages:
+
+    http://tjtech.me/analyze-oem-unlocking-under-android.html
