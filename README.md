@@ -1,5 +1,7 @@
 # ADB
 
+### THIS PAGE IS FAR AWAY FROM DONE, UPDATING DAILY SO COME BACK L8R FOR MORE CMDS!
+
 This is my private cheatsheet for ADB that I have decided to share since there is few good wikis for adb out there that has all in one place, so hopefully someone will enjoy this repo.
 
 I wont include adb shell in any of my commands since I working on the device and not via shell I dont want to include adb shell. For all who prefering to work via a terminal like powershell or terminal just add "adb shell" infront of the commands. 
