@@ -661,15 +661,15 @@ There is to much to describe here, get info by type getprop, but you can for exa
     fastboot getvar error_print                         # Error Print
     fastboot getvar rescue_enter_recovery               # Enter recover
     fastboot getvar rescue_get_hwid                     # (bootloader) xxxxxxxxxxxx / xxxxxxxxxxxx (bootloader) 
-    fastboot getvar inject_bootfail_memory_address
-    fastboot getvar rescue_get_updatetoken
-    fastboot getvar max-download-size
-    fastboot oem check-rootinfo
-    fastboot oem get-bootinfo
-    fastboot oem get-product-model
-    fastboot oem get-build-number   
+    fastboot getvar inject_bootfail_memory_address      # NO DESCRIPTION - FOUND WHEN I CRACKED THE BOOTLOADER
+    fastboot getvar rescue_get_updatetoken              # NO DESCRIPTION - FOUND WHEN I CRACKED THE BOOTLOADER
+    fastboot getvar max-download-size                   # NO DESCRIPTION - FOUND WHEN I CRACKED THE BOOTLOADER
+    fastboot oem check-rootinfo                         # NO DESCRIPTION - FOUND WHEN I CRACKED THE BOOTLOADER
+    fastboot oem get-bootinfo                           # NO DESCRIPTION - FOUND WHEN I CRACKED THE BOOTLOADER
+    fastboot oem get-product-model                      # NO DESCRIPTION - FOUND WHEN I CRACKED THE BOOTLOADER
+    fastboot oem get-build-number                       # NO DESCRIPTION - FOUND WHEN I CRACKED THE BOOTLOADER
     fastboot oem unlock
-    fastboot oem check-image
+    fastboot oem check-image                            
     fastboot oem relock
     fastboot oem frp-unlock
     fastboot oem get_key_version
