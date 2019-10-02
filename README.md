@@ -634,60 +634,58 @@ There is to much to describe here, get info by type getprop, but you can for exa
     (bootloader) product:MSM8996
     (bootloader) unlocked:yes
 
-### Specifik for LG
-    
+### Fastboot commands
+
     fastboot erase config
     fastboot reboot
-
-
-fastboot oem get-psid                               #_Print_Serial_and_IMEI
-fastboot getvar rescue_version                      #_Print_rescue_mode
-fastboot getvar rescue_phoneinfo                    #_Print_phone_model
-fsatboot getvar_vendorcountry                       #_Print_vendorcountry
-fastboot getvar rescue_ugs_port                     #_Print_rescue_ugs_port
-fastboot getvar rescue_enter_recovery               #_Enter_recovery
-fastboot getvar max-download-size                   #_Print_max_download_size
-fastboot getvar error_print                         #_Print_amount_of_errors
-fastboot getvar partition-type                      #_Print_partition_type
-fastboot oem get_key_version                        #_Print_version_key
-fastboot oem battery_present_check                  #_Print_battery_millivolt
-fastboot continue                                   #_Fastboot_continue
-fastboot oem get_hwnff_ver                          #_Get_hwnff_version
-fastboot oem reboot_boot_dump                       # UNKNOWN
-fastboot getvar rescue_version                      # Print rescue version
-fastboot getvar rescue_phoneinfo                    # Print rescue model
-fastboot getvar devicemodel                         # Print device model
-fastboot getvar rescue_ugs_port                     # Print rescue port
-fastboot getvar error_print                         # Error Print
-fastboot getvar rescue_enter_recovery               # Enter recover
-fastboot getvar rescue_get_hwid                     # (bootloader) 28EB58D1D517EDFF89A9497E75BA26ED / (bootloader) 976EF109B5D7FE6751EFB48083B4A279
-fastboot getvar inject_bootfail_memory_address
-fastboot getvar rescue_get_updatetoken
-fastboot getvar max-download-size
-fastboot oem check-rootinfo
-fastboot oem get-bootinfo
-fastboot oem get-product-model
-fastboot oem get-build-number
-fastboot oem unlock
-fastboot oem check-image
-fastboot oem relock
-fastboot oem frp-unlock
-fastboot oem get_key_version
-fastboot oem battery_present_check
-fastboot oem unlock_func
-fastboot oem get_hwnff_ver
-fastboot getvar error_print
-fastboot oem oeminforead
-fastboot oem get_bootFail_ver_func
-fastboot oem func
-fastboot oem get_bootFail_info_func
-fastboot oem relock_func
-fastboot oem reboot_boot_dump_func
-fastboot oem hwdog certify begin
-fastboot oem get-product-model
-fastboot oem get-build-number
-fastboot oem get_hwnff_ver_func
-fastboot flashing unlock
+    fastboot oem get-psid                               #_Print_Serial_and_IMEI
+    fastboot getvar rescue_version                      #_Print_rescue_mode
+    fastboot getvar rescue_phoneinfo                    #_Print_phone_model
+    fsatboot getvar_vendorcountry                       #_Print_vendorcountry
+    fastboot getvar rescue_ugs_port                     #_Print_rescue_ugs_port
+    fastboot getvar rescue_enter_recovery               #_Enter_recovery
+    fastboot getvar max-download-size                   #_Print_max_download_size
+    fastboot getvar error_print                         #_Print_amount_of_errors
+    fastboot getvar partition-type                      #_Print_partition_type
+    fastboot oem get_key_version                        #_Print_version_key
+    fastboot oem battery_present_check                  #_Print_battery_millivolt
+    fastboot continue                                   #_Fastboot_continue
+    fastboot oem get_hwnff_ver                          #_Get_hwnff_version
+    fastboot oem reboot_boot_dump                       # UNKNOWN
+    fastboot getvar rescue_version                      # Print rescue version
+    fastboot getvar rescue_phoneinfo                    # Print rescue model
+    fastboot getvar devicemodel                         # Print device model
+    fastboot getvar rescue_ugs_port                     # Print rescue port
+    fastboot getvar error_print                         # Error Print
+    fastboot getvar rescue_enter_recovery               # Enter recover
+    fastboot getvar rescue_get_hwid                     # (bootloader) xxxxxxxxxxxx / xxxxxxxxxxxx (bootloader) 
+    fastboot getvar inject_bootfail_memory_address
+    fastboot getvar rescue_get_updatetoken
+    fastboot getvar max-download-size
+    fastboot oem check-rootinfo
+    fastboot oem get-bootinfo
+    fastboot oem get-product-model
+    fastboot oem get-build-number   
+    fastboot oem unlock
+    fastboot oem check-image
+    fastboot oem relock
+    fastboot oem frp-unlock
+    fastboot oem get_key_version
+    fastboot oem battery_present_check
+    fastboot oem unlock_func
+    fastboot oem get_hwnff_ver
+    fastboot getvar error_print
+    fastboot oem oeminforead
+    fastboot oem get_bootFail_ver_func
+    fastboot oem func
+    fastboot oem get_bootFail_info_func
+    fastboot oem relock_func
+    fastboot oem reboot_boot_dump_func
+    fastboot oem hwdog certify begin
+    fastboot oem get-product-model
+    fastboot oem get-build-number
+    fastboot oem get_hwnff_ver_func
+    fastboot flashing unlock
 
 ### Print USB Mode (Charging only, MTP ... )
 
